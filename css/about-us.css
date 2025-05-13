@@ -1,0 +1,732 @@
+.about-us{
+    padding-top: 100px;
+    padding-bottom: 50px;
+}
+
+.about-us-images{
+    position: relative;
+    height: 533.33px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden
+}
+
+.about-us-images1{
+    margin-left: 120px;
+    margin-bottom: 43px;
+    margin-top: 43px;
+    max-width: 580px;
+    width: 100%;
+    filter: blur(3px);
+    animation: unblur 2s ease forwards paused;
+
+
+}
+
+.about-us-images2{
+    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    animation: float 3s ease-in-out infinite alternate;
+}
+
+@keyframes float {
+    from { transform: translate(-50%, -50%) rotate(-1deg); }
+    to { transform: translate(-50%, -54%) rotate(1deg); }
+  }
+
+.about-us-images3{
+    
+    position: absolute;
+    margin-right: -50px;
+    object-fit: contain;
+    max-width: 800px;
+    width: 100%;
+    height: 533px;
+    right: 0;
+    bottom: 0;
+    filter: blur(3px);
+    animation: unblur 2s ease forwards paused;
+
+}
+
+.about-us-images:hover .about-us-images1,
+.about-us-images:hover .about-us-images3 {
+  animation-play-state: running;
+}
+
+@keyframes unblur {
+    to {
+      filter: blur(0); 
+    }
+  }
+
+.about-us-text{
+    display: flex;
+    padding-top: 60px;
+    padding-left: 120px;
+}
+
+.text-about-us1{
+    max-width: 385px;
+}
+
+.txt0{
+    font-size: 80px;
+    letter-spacing: 1px;
+    line-height: 88px;
+    text-align: left;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+}
+
+.txt0::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: #C6100F;
+    transition: width 0.5s ease;
+}
+
+.txt0:hover::after {
+    width: 95%;
+}
+
+.text-about-us2{
+    padding-top: 57px;
+    padding-left: 145px;
+    max-width: 430px;
+}
+
+.p1{
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0%;
+    text-align: left;
+    animation: 
+        typing 3.5s steps(30, end) infinite,
+        blink-caret 0.75s step-end infinite;
+}
+
+.txt1{
+    min-width: 428px;
+    min-height: 72px;
+}
+
+.txt2{
+    margin-top: 30px;
+    min-width: 407px;
+    min-height: 120px;
+}
+
+.p2{
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0%;
+    text-align: left;
+    animation: 
+        typing 3.5s steps(30, end) infinite,
+        blink-caret 0.75s step-end infinite;
+}
+
+
+.botn{
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    margin-top: 31.5px;
+    display: inline-block;
+    height: 43px;
+    line-height: 43px;
+    padding-left: 16px;
+    padding-right: 25px;
+    background-color: #C6100F;
+    color:#FFFFFF;
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: uppercase;
+    border-radius: 4px;
+    letter-spacing: 1px;
+}
+
+.botn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: #9a0b0b;
+    transition: left 1s cubic-bezier(.77,.01,.46,1.06);
+    z-index: -1;
+}
+  
+  .botn:hover::before {
+    left: 0;
+}
+
+.about-us-companies{
+    margin-top: 149px;
+}
+
+.teams-and-companies{
+
+    margin-left: 388px;
+    max-width: 425px;
+    max-height: 30px;
+}
+
+.teams-and-companies-text{
+
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 30px;
+    letter-spacing: 1px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.companies-logo{
+    margin-top: 40px;
+    margin-left: 325px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 равных столбца */
+    grid-template-rows: repeat(2, auto); /* 2 строки */
+    gap: 20px;
+    width: 100%;
+    max-width: 550px;
+}
+
+.logo1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logo2{
+    margin-left: -1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logo3{
+    margin-left: -2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logo4{
+    margin-top: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logo5{
+    margin-left: -3px;
+    margin-top: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logo6{
+    margin-left: -4px;
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.our-work{
+    margin-top: 32px;
+    margin-left: 540px;
+}
+.our-work-txt{
+    color: #FFFFFFCC;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-align: left;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+    }
+
+.our-work-txt::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #C6100F;
+    transition: width 0.5s ease;
+}
+    
+.our-work-txt:hover::after {
+    width: 100%;
+}
+
+.about-us-our-works{
+    margin-left: 264px;
+    margin-top: 140px;
+    width: 672px;
+    height: 130px;
+}
+
+.about-us-our-works-txt{
+    font-size: 130px;
+    font-weight: 400;
+    line-height: 130px;
+    letter-spacing: 0%;
+    text-align: center;
+    text-transform: uppercase;
+    
+}
+
+.about-us-our-works-txt{
+    
+    animation: wave 2s infinite alternate cubic-bezier(.83,.01,.38,.97);
+}
+  
+@keyframes wave {
+    to { transform: translateY(-10px); }
+}
+
+@media (max-width: 1250px) {
+    .about-us-images1{
+        margin-left: 30px;
+        margin-bottom: 43px;
+        margin-top: 43px;
+        max-width: 580px;
+        width: 100%;
+    }
+
+    .about-us-images3{
+    
+        position: absolute;
+        margin-right: -145px;
+        object-fit: contain;
+        max-width: 800px;
+        width: 100%;
+        height: 533px;
+        right: 0;
+        bottom: 0;
+    
+    }
+
+    .about-us-our-works-txt{
+        font-size: 115px;
+    }
+
+
+}
+
+@media (max-width: 1025px) {
+    
+    .about-us-images1{
+        margin-left: 0px;
+        max-width: 500px;
+
+    }
+
+    .about-us-images3{
+        margin-right: -150px;
+        max-width: 650px;
+    }
+
+    .txt0{
+        font-size: 75px;
+    }
+
+    .text-about-us2{
+        padding-top: 57px;
+        padding-left: 30px;
+        max-width: 430px;
+    }
+
+    .p1{
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 24px;
+        letter-spacing: 0%;
+        text-align: left;
+    }
+
+    .txt1{
+        min-width: 428px;
+        min-height: 72px;
+    }
+
+    .txt2{
+        margin-top: 30px;
+        min-width: 407px;
+        min-height: 120px;
+    }
+
+    .p2{
+        font-size: 20px;
+    }
+
+    .teams-and-companies{
+        margin-left: 280px;
+    }
+
+    
+    .companies-logo{
+        margin-top: 40px;
+        margin-left: 220px;
+    }
+
+    .our-work{
+        margin-top: 32px;
+        margin-left: 440px;
+    }
+    
+    .our-work-line{
+        margin-left: 440px;
+    }
+
+    .about-us-our-works{
+        margin-left: 160px;
+    }
+
+    .about-us-our-works-txt{
+        font-size: 105px;
+    }
+}
+
+@media (max-width: 770px) {
+    
+    .about-us-images1{
+        margin-left: -60px;
+        max-width: 400px;
+
+    }
+
+    .about-us-images2{
+        max-width: 120px;
+        position: absolute;
+        top: 50%; /* Размещаем в центре блока */
+        left: 46%;
+        transform: translate(-50%, -50%); /* Корректируем центрирование */
+        z-index: 2;
+    }
+
+    .about-us-images3{
+        margin-right: -100px;
+        max-width: 500px;
+    }
+
+    .about-us-text{
+        padding-top: 50px;
+        padding-left: 35px;
+    }
+
+    .txt0{
+        font-size: 58px;
+        line-height: 72px;
+    }
+
+    .text-about-us2{
+        padding-top: 10px;
+        padding-left: 30px;
+        max-width: 430px;
+    }
+
+    .p1{
+        font-size: 18px;
+    }
+
+    .txt1{
+        min-width: 330px;
+        min-height: 72px;
+    }
+
+    .txt2{
+        margin-top: 20px;
+        min-width: 330px;
+        min-height: 120px;
+    }
+
+    .p2{
+        font-size: 18px;
+    }
+
+    .botn{
+        margin-top: 5px;
+    }
+
+    .teams-and-companies{
+        margin-left: 160px;
+    }
+
+    
+    .companies-logo{
+        margin-top: 40px;
+        margin-left: 100px;
+    }
+
+    .our-work{
+        margin-top: 32px;
+        margin-left: 315px;
+    }
+    
+    .our-work-line{
+        margin-left: 315px;
+    }
+
+    .about-us-our-works{
+        margin-left: 32px;
+    }
+
+    .about-us-our-works-txt{
+        font-size: 82px;
+    }
+}
+
+@media (max-width: 481px) {
+    .about-us-images{
+        height: 830px;
+        flex-direction: column;
+    }
+    
+    .about-us-images1{
+        margin-left: 0px;
+        max-width: 400px;
+
+    }
+
+    .about-us-images2{
+        top: 45%;
+        left: 50%;
+    }
+
+    .about-us-images3{
+        margin-top: 0px;
+        margin-right: 0px;
+        max-width: 500px;
+    }
+
+    .about-us-text{
+        flex-direction: column;
+        padding-top: 40px;
+    }
+
+    .text-about-us1{
+        margin-left: 65px;
+    }
+
+    .txt0{
+        font-size: 58px;
+        line-height: 64px;
+    }
+
+    .text-about-us2{
+        padding-top: 30px;
+        padding-left: 0px;
+        max-width: 430px;
+    }
+
+    .p1{
+        font-size: 18px;
+    }
+
+    .txt1{
+        min-width: 330px;
+        min-height: 72px;
+    }
+
+    .txt2{
+        margin-top: 20px;
+        min-width: 330px;
+        min-height: 120px;
+    }
+
+    .p2{
+        font-size: 18px;
+    }
+
+    .botn{
+        margin-top: 0px;
+        height: 35px;
+        padding: 12px 12px;
+        padding-right: 12px;
+        padding-left: 12px;
+        font-size: 12px;
+        line-height: 14px;
+
+    }
+
+    .about-us-companies{
+        margin-top: 120px;
+    }
+
+    .teams-and-companies{
+        margin-left: 15px;
+    }
+
+    
+    .companies-logo{
+        margin-top: 40px;
+        margin-left: 12px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 3 равных столбца */
+        grid-template-rows: repeat(3, auto); /* 2 строки */
+        gap: 20px;
+        width: 100%;
+        max-width: 450px;
+        }
+
+
+    .our-work{
+        margin-top: 32px;
+        margin-left: 180px;
+    }
+    
+    .our-work-line{
+        margin-left: 180px;
+    }
+
+    .about-us-our-works{
+        margin-left: 75px;
+        margin-top: 110px;
+        width: 300px;
+        height: 70px;
+    }
+
+    .about-us-our-works-txt{
+        font-size: 58px;
+    }
+}
+
+@media (max-width: 321px) {
+
+    .about-us{
+        padding-top: 0px;
+    }
+
+    .about-us-images{
+        height: 700px;
+        flex-direction: column;
+    }
+    
+    .about-us-images1{
+        margin-left: 0px;
+        max-width: 320px;
+
+    }
+
+    .about-us-images2{
+        max-width: 100px;
+        top: 43%;
+        left: 50%;
+    }
+
+    .about-us-images3{
+        margin-right: 0px;
+        max-width: 320px;
+    }
+
+    .about-us-text{
+        flex-direction: column;
+        padding-top: 0px;
+        margin-left: -15px;
+    }
+
+    .text-about-us1{
+        text-align: center;
+        margin-left: 0px;
+    }
+
+    .txt0{
+        font-size: 48px;
+        line-height: 56px;
+    }
+
+    .text-about-us2{
+        padding-top: 30px;
+        padding-left: 0px;
+        max-width: 270px;
+    }
+
+    .p1{
+        font-size: 14px;
+    }
+
+    .txt1{
+        min-width: 270px;
+        min-height: 72px;
+    }
+
+    .txt2{
+        margin-top: 20px;
+        min-width: 270px;
+        min-height: 120px;
+    }
+
+    .p2{
+        font-size: 14px;
+    }
+
+    .botn{
+        margin-top: 20px;
+        height: 35px;
+        padding: 12px 12px;
+        padding-right: 12px;
+        padding-left: 12px;
+        font-size: 12px;
+        line-height: 14px;
+
+    }
+
+    .about-us-companies{
+        margin-top: 120px;
+    }
+
+    .teams-and-companies{
+        margin-left: 5px;
+    }
+
+    
+    .companies-logo{
+        margin-top: 80px;
+        margin-left: 0px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 3 равных столбца */
+        grid-template-rows: repeat(3, auto); /* 2 строки */
+        gap: 20px;
+        width: 100%;
+        max-width: 450px;
+        }
+
+
+    .our-work{
+        margin-top: 32px;
+        margin-left: 85px;
+    }
+    
+    .our-work-line{
+        margin-left: 85px;
+    }
+
+    .about-us-our-works{
+        text-align: center;
+        margin-left: 0px;
+        margin-top: 70px;
+        width: 300px;
+        height: 70px;
+    }
+
+    .about-us-our-works-txt{
+        font-size: 48px;
+    }
+}

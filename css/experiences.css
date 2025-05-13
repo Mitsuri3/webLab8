@@ -1,0 +1,480 @@
+.experiences{
+    margin-top: 98px;
+}
+
+.experiences-text-block{
+    margin-left: 120px;
+    max-width: 544px;
+}
+
+.experiences-text{
+    font-size: 80px;
+    font-weight: 400;
+    line-height: 88px;
+    letter-spacing: 1px;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.experiences-block{
+    margin-top: 81px;
+    margin-left: 120px;
+    display: flex;
+}
+
+.block1 {
+    display: flex;
+    flex-direction: column; /* Располагаем элементы в колонку */
+    align-items: center; /* Выравниваем по центру */
+    justify-content: center;
+    width: 300px; /* Размер блока */
+    height: 337px;
+    text-align: center;
+    background: rgb(23, 25, 36);
+}
+
+.block1-icon {
+    margin-top: -16px;
+    width: 270px;
+    height: 150px;
+}
+
+.block1-title {
+    margin-top: 25px;
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 30px;
+    letter-spacing: 1px;
+    text-align: center;
+    text-transform: uppercase;
+}
+.block-for-text1{
+    margin-top: 10px;
+    max-width: 156px;
+    max-height: 72px;
+}
+
+.block1-text {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0%;
+    text-align: center;
+}
+
+.block2{
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center;
+    width: 300px; 
+    height: 337px;
+    text-align: center;
+    background: rgb(23, 25, 36);
+}
+
+.block-for-text2{
+    margin-top: 10px;
+    max-width: 208px;
+    max-height: 72px;
+}
+
+.block3{
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center;
+    width: 300px; /* Размер блока */
+    height: 337px;
+    text-align: center;
+    background: rgb(23, 25, 36);
+}
+
+.block-for-text3{
+    margin-top: 10px;
+    max-width: 190px;
+    max-height: 72px;
+}
+
+.block1, .block2, .block3 {
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .block1:hover, .block2:hover, .block3:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .block1::before, .block2::before, .block3::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 3px;
+    background: #C6100F;
+    transition: left 0.4s ease;
+  }
+  
+  .block1:hover::before, 
+  .block2:hover::before, 
+  .block3:hover::before {
+    left: 0;
+  }
+  
+  .block1-icon {
+    transition: transform 0.4s ease;
+  }
+  
+  .block1:hover .block1-icon,
+  .block2:hover .block1-icon,
+  .block3:hover .block1-icon {
+    transform: scale(1.1);
+  }
+
+
+.testimonials-block{
+    margin-top: 150px;
+}
+
+.testimonials-title-block{
+    margin-left: 309px;
+    max-width: 582px;
+    max-height: 88px;
+}
+
+.testimonials-title{
+    font-size: 80px;
+    font-weight: 400;
+    line-height: 88px;
+    letter-spacing: 1px;
+    text-align: center;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.testimonials-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 2px;
+    background: #C6100F;
+    animation: pulse 3s infinite;
+}
+
+@keyframes pulse {
+    0% { width: 10%; }
+    50% { width: 40%; }
+    100% { width: 100%; }
+}
+
+.testimonials-block2{
+    margin-top: 82px;
+    margin-left: 180px;
+    
+}
+
+.testimonials-block2-img{
+    max-width: 100px;
+    max-height: 100px;
+    margin-left: 370px;
+}
+
+.testimonials-block-for-text{
+    margin-top: 29px;
+    margin-left: 134px;
+    max-width: 572px;
+    max-height: 66px;
+}
+
+.testimonials-text{
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 33px;
+    letter-spacing: 0%;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.name{
+    color: rgba(255, 255, 255, 0.7);
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 1px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.customer{
+    color: rgba(255, 255, 255, 0.7);
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 1px;
+    text-align: center;
+    text-transform: uppercase;
+    }
+
+
+.block-for-name{
+    margin-top: 20px;
+    margin-left: 378px;
+    max-width: 85px;
+    max-height: 20px;
+}
+
+.block-for-customer{
+    margin-top: 5px;
+    margin-left: 349px;
+    max-width: 142px;
+    max-height: 20px;
+}
+
+.block-for-cubes{
+    margin-top: 24px;
+    margin-left: 394px;
+    display: flex;
+    gap: 10px;
+
+
+}
+
+.cube1{
+    background-color: rgb(255, 255, 255);;
+    width: 11px;
+    height: 11px;
+}
+
+.cube2{
+    width: 11px;
+    height: 11px;
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.cube3{
+    width: 11px;
+    height: 11px;
+    background: rgba(255, 255, 255, 0.4);
+}
+
+
+@media (max-width: 1025px) {
+
+    .experiences-text-block{
+        margin-left: 225px;
+    }
+    
+    .experiences-text{
+        font-size: 75px;
+        text-align: center;
+    }
+
+    .experiences-block{
+        margin-top: 71px;
+        margin-left: 17px;
+        display: flex;
+    }
+
+    .testimonials-block{
+        margin-top: 140px;
+    }
+    
+    .testimonials-title-block{
+        margin-left: 205px;
+    }
+    
+    .testimonials-title{
+        font-size: 75px;
+    }
+    
+    .testimonials-block2{
+        margin-top: 82px;
+        margin-left: 90px;
+        
+    }
+}
+
+@media (max-width: 770px) {
+
+    .experiences-text-block{
+        margin-left: 97px;
+    }
+    
+    .experiences-text{
+        font-size: 58px;
+        text-align: center;
+    }
+
+    .experiences-block{
+        margin-top: 61px;
+        margin-left: 0px;
+        display: flex;
+    }
+
+    .testimonials-block{
+        margin-top: 110px;
+    }
+    
+    .testimonials-title-block{
+        margin-left: 80px;
+    }
+    
+    .testimonials-title{
+        font-size: 58px;
+    }
+    
+    .testimonials-block2{
+        margin-top: 72px;
+        margin-left: -45px;
+        
+    }
+}
+
+@media (max-width: 481px) {
+    .experiences{
+        margin-top: 140px;
+    }
+
+    .experiences-text-block{
+        margin-left: 0px;
+    }
+    
+    .experiences-text{
+        font-size: 58px;
+        text-align: center;
+        line-height: 64px;
+    }
+
+    .experiences-block{
+        margin-top: 41px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+    }
+
+    .block2, .block3{
+        margin-left: 0px;
+    }
+
+    .testimonials-block{
+        margin-top: 140px;
+    }
+    
+    .testimonials-title-block{
+        margin-left: 0px;
+    }
+    
+    .testimonials-title{
+        font-size: 58px;
+    }
+    
+    .testimonials-block2{
+        margin-top: 40px;
+        margin-left: 0px;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        
+    }
+
+    .testimonials-block2-img{
+        margin-top: 0px;
+        margin-left: 0px;
+    }
+    
+    .testimonials-block-for-text{
+        margin-top: 29px;
+        margin-left: 0px;
+        max-width: 460px;
+        max-height: 66px;
+    }
+    
+    .testimonials-text{
+        font-size: 24px;
+    }
+    
+    .name{
+        font-size: 14px;
+    }
+    
+    .customer{
+        font-size: 14px;
+        }
+    
+    
+    .block-for-name{
+        margin-top: 60px;
+        margin-left: 0px;
+    }
+    
+    .block-for-customer{
+        margin-top: 10px;
+        margin-left: 0px;
+    }
+    
+    .block-for-cubes{
+        margin-top: 14px;
+        margin-left: 0px;
+    
+    }
+}
+
+
+@media (max-width: 321px) {
+    .experiences{
+        margin-top: 100px;
+    }
+    
+    .experiences-text{
+        font-size: 44px;
+        text-align: center;
+        line-height: 54px;
+    }
+
+    .testimonials-block{
+        margin-top: 100px;
+    }
+    
+    .testimonials-title-block{
+        margin-left: 0px;
+    }
+    
+    .testimonials-title{
+        font-size: 40px;
+    }
+    
+    .testimonials-block2{
+        margin-top: 20px;
+        
+    }
+    
+    .testimonials-text{
+        font-size: 24px;
+    }
+    
+    .name{
+        font-size: 14px;
+    }
+    
+    .customer{
+        font-size: 14px;
+        }
+    
+    
+    .block-for-name{
+        margin-top: 80px;
+    }
+}
+
+

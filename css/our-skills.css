@@ -1,0 +1,453 @@
+.our-skills{
+    max-height: 533.33px;
+    height: 100%;
+    position: relative;
+    margin-top: 169px;
+    display: flex;
+    overflow: hidden;
+    justify-content: space-between;
+}
+
+.block-our-skills{
+    margin-left: 120px;
+
+}
+
+.our-skills-title-block{
+    margin-top: 75px;
+}
+
+.our-skills-title{
+    font-size: 80px;
+    font-weight: 400;
+    line-height: 88px;
+    letter-spacing: 1px;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+
+.block-skills-percents{
+    margin-top: 61.55px;
+}
+
+.skil-block1{
+    display: flex;
+    justify-content: space-between; /* Распределение текста */
+    align-items: center;
+}
+
+
+.Graphic-Design-text{
+    color: rgba(255, 255, 255, 0.8);
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 1px;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.Graphic-Design-percents-block{
+    margin-right: 6px;
+}
+
+.Graphic-Design-percents{
+    
+    color: rgba(255, 255, 255, 0.8);
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 1px;
+    text-align: right;
+    text-transform: uppercase;
+}
+
+.graphic-design-line{
+    margin-top: 10.45px;
+    width: 80%;
+    height: 2px;
+    background: rgb(198, 16, 15);
+}
+
+.skil-block2{
+    margin-top: 19.55px;
+    display: flex;
+    justify-content: space-between; /* Распределение текста */
+    align-items: center;
+}
+
+
+.Lead-Generation-text{
+    color: rgba(255, 255, 255, 0.8);
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 1px;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.Lead-Generation-percents-block{
+    margin-right: 1px;
+}
+
+.Lead-Generation-percents{
+
+    color: rgba(255, 255, 255, 0.8);
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 1px;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.Lead-Generation-line{
+    margin-top: 11px;
+    width: 41%;
+    height: 2px;
+    background: rgb(198, 16, 15);
+}
+
+.skil-block3{
+    margin-top: 19.55px;
+    display: flex;
+    justify-content: space-between; /* Распределение текста */
+    align-items: center;
+}
+
+
+.Photoshop-text{
+    color: rgba(255, 255, 255, 0.8);
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 1px;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.Photoshop-percents-block{
+    margin-right: 6px;
+}
+
+.Photoshop-percents{
+    
+    color: rgba(255, 255, 255, 0.8);
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 1px;
+    text-align: right;
+    text-transform: uppercase;
+}
+
+.Photoshop-line{
+    margin-top: 10.45px;
+    width: 70%;
+    height: 2px;
+    background: rgb(198, 16, 15);
+}
+
+.skil-block4{
+    margin-top: 19.55px;
+    display: flex;
+    justify-content: space-between; /* Распределение текста */
+    align-items: center;
+}
+
+
+.Illustration-text{
+    color: rgba(255, 255, 255, 0.8);
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 1px;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.Illustration-percents-block{
+    margin-right: 2px;
+}
+
+.Illustration-percents{
+    
+    color: rgba(255, 255, 255, 0.8);
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 1px;
+    text-align: right;
+    text-transform: uppercase;
+}
+
+.Illustration-line{
+    margin-top: 10.45px;
+    width: 100%;
+    height: 2px;
+    background: rgb(198, 16, 15);
+}
+
+.our-skills-txt-for-block{
+    margin-top: 15px;
+    max-width: 417px;
+    max-height: 20px;
+}
+
+.our-skills-txt{
+    color: rgba(255, 255, 255, 0.8);
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.2px;
+    letter-spacing: 0%;
+    text-align: left;
+}
+
+.our-skills-image{
+
+    max-width: 800px;
+    max-height: 533px;
+    object-fit: contain;
+    margin-left: 100px;
+    margin-top: 0px
+}
+
+.our-skills-image {
+    position: relative;
+    animation: 
+        floatImage 6s infinite ease-in-out,
+        colorPulse 8s infinite alternate;
+    filter: 
+        drop-shadow(0 10px 5px rgba(198, 16, 15, 0.3));
+    transform-style: preserve-3d;
+}
+
+.our-skills-image::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background: linear-gradient(
+        135deg, 
+        rgba(198, 16, 15, 0.4) 0%, 
+        transparent 50%,
+        rgba(198, 16, 15, 0.4) 100%
+    );
+    z-index: -1;
+    animation: 
+        borderGlow 3s infinite alternate,
+        hologramScan 5s infinite linear;
+    mix-blend-mode: overlay;
+}
+
+@keyframes floatImage {
+    0%, 100% { transform: translateY(0) rotateY(0deg); }
+    25% { transform: translateY(-15px) rotateY(3deg); }
+    50% { transform: translateY(0) rotateY(0deg); }
+    75% { transform: translateY(-10px) rotateY(-3deg); }
+}
+
+@keyframes colorPulse {
+    to { filter: 
+        hue-rotate(5deg) 
+        contrast(1.1) 
+        drop-shadow(0 15px 7px rgba(198, 16, 15, 0.4));
+    }
+}
+
+@keyframes borderGlow {
+    to { 
+        top: -10px;
+        left: -10px;
+        right: -10px;
+        bottom: -10px;
+        opacity: 0.8;
+    }
+}
+
+@keyframes hologramScan {
+    from { background-position: 0 -100%; }
+    to { background-position: 0 200%; }
+}
+
+
+@media (max-width:1025px) {
+    .our-skills-image{
+        max-width: 500px;
+        margin-left: 40px;
+    }
+
+    .block-our-skills{
+        margin-left: 40px;
+    
+    }
+    
+    .our-skills-title-block{
+        margin-top: 10px;
+    }
+    
+    .our-skills-title{
+        font-size: 75px;
+    }
+}
+
+@media (max-width:770px) {
+
+    .our-skills{
+        margin-top: 140px;
+        align-items: center;
+    }
+    .our-skills-image{
+        display: none;
+    }
+
+    .block-our-skills{
+        margin-left: 140px;
+    
+    }
+    
+    
+    .our-skills-title-block{
+        margin-top: 10px;
+        margin-left: 35px;
+    }
+    
+    .our-skills-title{
+        font-size: 75px;
+    }
+}
+
+@media (max-width:481px) {
+
+    .our-skills{
+        margin-top: 140px;
+        align-items: center;
+    }
+    .our-skills-image{
+        display: none;
+    }
+
+    .block-our-skills{
+        margin-left: 0px;
+    
+    }
+    
+    
+    .our-skills-title-block{
+        margin-top: 20px;
+        margin-left: 45px;
+        
+    }
+    
+    .our-skills-title{
+        font-size: 58px;
+        text-align: center;
+    }
+
+    .block-skills-percents{
+        margin-top: 30px;
+        padding-left: 30px;
+        max-width: 460px;
+    }
+    
+    .Graphic-Design-percents-block{
+        margin-right: 0px;
+    }
+    
+    .graphic-design-line{
+        width: 80%;
+    }
+    
+    .Lead-Generation-percents-block{
+        margin-right: 0px;
+    }
+    
+    .Lead-Generation-line{
+        width: 41%;
+    }
+    
+    .Photoshop-percents-block{
+        margin-right: 0px;
+    }
+    
+    .Photoshop-line{
+        width: 70%;
+    }
+    
+    .Illustration-line{
+        width: 100%;
+    }
+}
+
+@media (max-width:321px) {
+
+    .our-skills{
+        margin-top: 70px;
+        align-items: center;
+    }
+
+    .block-our-skills{
+        margin-left: 0px;
+    
+    }
+    
+    
+    .our-skills-title-block{
+        margin-top: 20px;
+        margin-left: 0px;
+        
+    }
+    
+    .our-skills-title{
+        font-size: 48px;
+        text-align: center;
+    }
+
+    .block-skills-percents{
+        margin-top: 30px;
+        padding-left: 10px;
+        max-width: 315px;
+    }
+    
+    .Graphic-Design-percents-block{
+        margin-right: 0px;
+    }
+    
+    .graphic-design-line{
+        width: 80%;
+    }
+    
+    .Lead-Generation-percents-block{
+        margin-right: 0px;
+    }
+    
+    .Lead-Generation-line{
+        width: 41%;
+    }
+    
+    .Photoshop-percents-block{
+        margin-right: 0px;
+    }
+    
+    .Photoshop-line{
+        width: 70%;
+    }
+    
+    .Illustration-line{
+        width: 100%;
+
+    }
+}

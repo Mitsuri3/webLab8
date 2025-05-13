@@ -1,0 +1,462 @@
+.footer{
+    padding-top: 50px;
+    padding-bottom: 71px;
+
+}
+.footer-block{
+    margin-left: 240px;
+
+}
+.footer-logos-block{
+    display: flex;
+    
+    
+}
+
+.fooret-logo{
+    max-width: 493px;
+    max-height: 153.17px;
+}
+
+.block-for-footer-text{
+    margin-top: 30px;
+    max-width: 488px;
+    max-height: 48px;
+}
+
+.footer-text{
+    color: rgba(255, 255, 255, 0.8);
+    font-family: Roboto;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0%;
+    text-align: left;
+}
+
+.footer-navigation-block{
+    margin-top: 29px;
+    display: flex;
+    
+    align-items: center;
+    
+
+}
+
+.link-item{
+    color: rgb(255, 255, 255);
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 1px;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.link-item:first-child { margin-left: 0px; }
+.link-item:nth-child(2) { margin-left: 13px; }
+.link-item:nth-child(3) { margin-left: 19px; }
+.link-item:nth-child(4) { margin-left: 20px; }
+.link-item:nth-child(5) { margin-left: 18px; }
+
+.footer-social-logos-block{
+    margin-left: 120px;
+}
+
+
+.footer-social-logos{
+    display: flex;
+    align-items: center;
+
+}
+
+.footer-inst{
+    margin-left: 9px;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0%;
+    text-align: left;
+}
+
+.footer-inst-logo{
+    margin-left: 15px;
+}
+
+.footer-twitter-logo{
+    margin-left: 35px;
+}
+
+.footer-dribbble-logo{
+    margin-left: 40px;
+}
+
+.footer-mail-block{
+    margin-left: 181px;
+    margin-top: 32px;
+}
+
+.footer-mail-text{
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 20.4px;
+    letter-spacing: 1px;
+    text-align: right;
+    text-transform: uppercase;
+}
+
+.footer-phone-block{
+    margin-left: 191px;
+    margin-top: 13px;
+}
+
+.footer-phone-text{
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 20.4px;
+    letter-spacing: 1px;
+    text-align: right;
+    text-transform: uppercase;
+}
+
+@media (max-width: 1250px) {
+    .footer-block{
+        margin-left: 150px;
+
+    
+    }
+}
+
+@media (max-width: 1025px) {
+    .footer-block{
+        margin-left: 35px;
+
+    
+    }
+}
+
+@media (max-width: 770px) {
+    .footer-logos-block{
+        display: flex;
+        
+        
+    }
+    
+    .fooret-logo{
+        max-width: 393px;
+        max-height: 153.17px;
+    }
+    
+    .block-for-footer-text{
+        margin-top: 30px;
+        max-width: 388px;
+        max-height: 48px;
+    }
+    
+    .footer-text{
+        font-size: 16px;
+    }
+    
+    .footer-navigation-block{
+        margin-top: 29px;
+        display: flex;
+        align-items: center;
+    }
+
+    .link-item{
+        font-size: 12px;
+    }
+
+    
+    .link-item:first-child { margin-left: 0px; }
+    .link-item:nth-child(2) { margin-left: 13px; }
+    .link-item:nth-child(3) { margin-left: 19px; }
+    .link-item:nth-child(4) { margin-left: 20px; }
+    .link-item:nth-child(5) { margin-left: 18px; }
+    
+
+    
+    .footer-social-logos-block{
+        margin-left: 50px;
+    }
+    
+    
+    .footer-social-logos{
+        display: flex;
+        align-items: center;
+    
+    }
+    
+    .footer-inst{
+        margin-left: 2px;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+        letter-spacing: 0%;
+        text-align: left;
+    }
+    
+    .footer-inst-logo{
+        margin-left: 15px;
+    }
+    
+    .footer-twitter-logo{
+        margin-left: 15px;
+    }
+    
+    .footer-dribbble-logo{
+        margin-left: 15px;
+    }
+    
+    .footer-mail-block{
+        margin-left: 0px;
+        margin-top: 32px;
+    }
+    
+    .footer-mail-text{
+        font-size: 14px;
+    }
+    
+    .footer-phone-block{
+        margin-left: 0px;
+        margin-top: 13px;
+    }
+    
+    .footer-phone-text{
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20.4px;
+        letter-spacing: 1px;
+        text-align: right;
+        text-transform: uppercase;
+    }
+}
+
+@media (max-width: 481px) {
+
+    .footer{
+        padding-bottom: 30px;
+    
+    }
+    .footer-logos-block{
+        display: flex;
+    }
+    
+    .fooret-logo{
+        max-width: 380px;
+        max-height: 153.17px;
+    }
+    
+    .block-for-footer-text{
+        margin-top: 30px;
+        max-width: 270px;
+        max-height: 48px;
+    }
+    
+    .footer-text{
+        font-size: 14px;
+    }
+    
+    .footer-navigation-block {
+        margin-top: 30px;
+        width: 270px;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(min-content, 1fr));
+        
+    }
+
+    .link-item {
+        font-size: 12px;
+        white-space: nowrap;
+    }
+
+    
+    .link-item:nth-child(1) { margin-right: 0px; }  
+    .link-item:nth-child(2) { margin-left: -30px;}    
+    .link-item:nth-child(3) { margin-left: -60px; } 
+    .link-item:nth-child(4) { margin-top: 10px; margin-left: 0px; }  
+    .link-item:nth-child(5) { margin-top: 10px; margin-left: 0px; }
+    
+
+    
+    .footer-social-logos-block{
+        margin-left: 30px;
+        width: 150px;
+    }
+    
+    
+    .footer-social-logos{
+        display: flex;
+        text-align: center;
+        
+        flex-direction: column;
+        gap: 15px;
+    
+    }
+    
+    .footer-inst{
+        margin-top: -10px;
+        margin-left: 15px;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+        letter-spacing: 0%;
+        text-align: left;
+    }
+    
+    .footer-inst-logo{
+        margin-left: 15px;
+    }
+    
+    .footer-twitter-logo{
+        margin-left: 15px;
+    }
+    
+    .footer-dribbble-logo{
+        margin-left: 15px;
+    }
+    
+    .footer-mail-block{
+        margin-right: 15px;
+        margin-top: 32px;
+    }
+    
+    .footer-mail-text{
+        font-size: 12px;
+    }
+    
+    .footer-phone-block{
+        margin-left: 0px;
+        padding-right: 15px;
+        margin-top: 13px;
+        white-space: nowrap;
+    }
+    
+    .footer-phone-text{
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 20.4px;
+        letter-spacing: 1px;
+        text-align: right;
+        text-transform: uppercase;
+    }
+}
+
+@media (max-width: 321px) {
+
+    .footer{
+        padding-bottom: 20px;
+    
+    }
+
+    .footer-block{
+        margin-left: 15px;
+    }
+
+    .footer-logos-block{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .fooret-logo{
+        max-width: 200px;
+        max-height: 153.17px;
+    }
+    
+    .block-for-footer-text{
+        margin-top: 20px;
+        max-width: 270px;
+        max-height: 48px;
+    }
+    
+    .footer-text{
+        font-size: 14px;
+    }
+    
+    .footer-navigation-block {
+        margin-top: 40px;
+        width: 270px;
+        display: grid;
+        
+        grid-template-columns: repeat(3, minmax(min-content, 1fr));
+        
+    }
+
+    .link-item {
+        font-size: 12px;
+        white-space: nowrap;
+    }
+
+    
+    .link-item:nth-child(1) { margin-right: 0px; }  
+    .link-item:nth-child(2) { margin-left: 10px;}    
+    .link-item:nth-child(3) { margin-left: -50px; } 
+    .link-item:nth-child(4) { margin-top: 10px; margin-left: 0px; }  
+    .link-item:nth-child(5) { margin-top: 10px; margin-left: 50px; }
+    
+
+    
+    .footer-social-logos-block{
+        margin-top: 40px;
+        margin-left: 0px;
+        
+    }
+    
+    
+    .footer-social-logos{
+        display: flex;
+        text-align: center;
+        margin-left: -5px;
+        flex-direction:row;
+        gap: 10px;
+    
+    }
+    
+    .footer-inst{
+        margin-top: 0px;
+        margin-left: 0px;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+        letter-spacing: 0%;
+        text-align: left;
+    }
+    
+    .footer-inst-logo{
+        margin-left: 10px;
+    }
+    
+    .footer-twitter-logo{
+        margin-left: 10px;
+    }
+    
+    .footer-dribbble-logo{
+        margin-left: 10px;
+    }
+    
+    .footer-mail-block{
+        margin-right: 25px;
+        margin-top: 32px;
+    }
+    
+    .footer-mail-text{
+        font-size: 12px;
+    }
+    
+    .footer-phone-block{
+        margin-left: 0px;
+        padding-right: 35px;
+        margin-top: 13px;
+        white-space: nowrap;
+    }
+    
+    .footer-phone-text{
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 20.4px;
+        letter-spacing: 1px;
+        text-align: right;
+        text-transform: uppercase;
+    }
+}

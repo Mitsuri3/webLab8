@@ -1,0 +1,431 @@
+.header {
+    max-width: 1440px;
+    width: 100%;
+    max-height: 86px;
+    height: 100%;
+    border-bottom: 1px solid #FFFFFF26;
+    overflow: hidden;
+}
+
+.header-row {
+    display: flex;
+    align-items: center;
+    
+    
+}
+
+.header-left{
+    display: flex;
+    
+
+}
+
+.header-logo{
+    padding: 0;
+    margin: 0;
+    animation: slideFromTop 1s ease-out forwards;
+
+    
+}
+
+@keyframes slideFromTop {
+    from {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.header-text1{
+
+    margin-left: 35px;
+    animation: slideFromTop 1s ease-out 0.8s forwards;
+    opacity: 0;
+}
+
+.header-text2{
+
+    margin-left: 26px;
+    animation: slideFromTop 1s ease-out 0.8s forwards;
+    opacity: 0;
+
+}
+
+.brand-info-text-style {
+    padding: 0;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.8);
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: 0%;
+    text-align: left;
+    text-transform: uppercase;
+    
+
+}
+
+.studio-name-style{
+    padding: 0;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.8);
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: 0%;
+    text-align: left;
+    text-transform: uppercase;
+
+}
+
+.header__menu{
+    margin-top: 1px;
+    margin-left: 246px;
+}
+
+.header__menu_button{
+    width: 85px;
+    height: 85px;
+    background-color: black;
+    cursor: pointer;
+    border: none;
+    border-left: 1px solid rgba(255, 255, 255, 0.15);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    border-right: 1px solid rgba(255, 255, 255, 0.15);
+    transition: all 0.15s ease-in-out;
+    box-sizing: border-box;
+}
+
+.header__menu_button:hover {
+    background: rgb(255, 255, 255, 0.15);
+}
+
+.header__content_right{
+    display: flex;
+    align-items: center;
+    margin-left: 347.5px;
+    animation: slideFromTop 1s ease-out 0.8s forwards;
+    opacity: 0;
+    
+}
+
+.header__cart{
+    cursor: pointer;
+    width: 23px;
+    height: 23px;
+    border: none;
+    background: black;
+    transition: all 0.15s ease-in-out;
+}
+
+.header__cart_button:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.header__cart_button > img {
+    width: inherit;
+    height: inherit;
+}
+
+.header__orders_count {
+    width: 23px;
+    height: 23px;
+    line-height: 23px;
+    font-size: 10px;
+    text-align: center;
+    background: rgba(198, 16, 15, 1);
+}
+
+.header__contact_button{
+    margin-left: 19px;
+}
+
+.header__orders_count {
+    margin-left: 3px;
+    width: 23px;
+    height: 23px;
+    line-height: 23px;
+    font-size: 10px;
+    text-align: center;
+    background: rgba(198, 16, 15, 1);
+}
+
+.header__orders_count:hover{
+    background: rgb(105, 5, 5);
+}
+
+.score{
+    font-family: Roboto;
+    color: white;
+}
+
+.button {
+    height: 44px;
+    width: max-content;
+    padding: 12px 15px;
+    padding-right: 27px;
+    padding-left: 16px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 20px;
+    background: rgba(198, 16, 15, 1);
+    cursor: pointer;
+    border-radius: 4px;
+    letter-spacing: 1px;
+    transition: all 0.15s ease-in-out;
+    text-decoration: none;
+    color: white;
+    display: block;
+    text-transform: uppercase;
+    box-sizing: border-box;
+    border: 0px solid transparent;
+}
+
+.button_outline {
+    padding: 0;
+    height: max-content;
+    background: transparent;
+    border-radius: 0px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.button:hover {
+    background: rgb(105, 5, 5);
+}
+
+.button_outline:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+}
+
+@media (max-width: 1250px) {
+    .header {
+        width: 100%;
+        max-height: 140px;
+        height: 100%;
+        border-bottom: 1px solid #FFFFFF26;
+
+    }
+
+    .brand-info-text-style {
+
+        font-size: 16px;
+    }
+    
+    .studio-name-style{
+
+        font-size: 16px;
+    }
+
+    .header-text1{
+
+        width: 158px;
+    }
+
+    .header-text2{
+        margin-left: 10px;
+        width: 158px;
+    }
+
+    .header__menu{
+        margin-top: 1px;
+        margin-left: 210px;
+    }
+
+    .header__content_right{
+        margin-left: 285px;
+        
+    }
+
+}
+
+@media (max-width: 1025px) {
+    .header {
+        width: 100%;
+        max-height: 140px;
+        height: 100%;
+        border-bottom: 1px solid #FFFFFF26;
+
+    }
+
+    .brand-info-text-style {
+
+        font-size: 17px;
+    }
+    
+    .studio-name-style{
+
+        font-size: 17px;
+    }
+
+    .header-text1{
+
+        width: 160px;
+    }
+
+    .header-text2{
+        margin-left: 5px;
+        width: 160px;
+    }
+
+    .header__menu{
+        margin-top: 1px;
+        margin-left: 120px;
+    }
+
+    .header__content_right{
+        margin-left: 190px;
+        
+    }
+}
+
+@media (max-width: 770px) {
+
+    .brand-info-text-style {
+
+        font-size: 14px;
+    }
+    
+    .studio-name-style{
+
+        font-size: 14px;
+    }
+
+    .header-text1{
+
+        width: 120px;
+    }
+
+    .header-text2{
+        margin-left: 5px;
+        width: 140px;
+    }
+
+    .header__menu{
+        margin-top: 1px;
+        margin-left: 50px;
+    }
+
+    .header__content_right{
+        margin-left: 70px;
+        
+    }
+}
+
+@media (max-width: 481px) {
+
+    .header{
+        max-height: 66px;
+    }
+
+    .brand-info-text-style {
+
+        font-size: 14px;
+    }
+    
+    .studio-name-style{
+
+        font-size: 14px;
+    }
+
+    .header-text1{
+        margin-left: 30px;
+        width: 140px;
+    }
+
+    .header-text2{
+        display: none;
+        margin-left: 30px;
+        width: 100px;
+    }
+
+    .header__menu{
+        margin-top: 1px;
+        margin-left: 30px;
+    }
+
+    .header__menu_button{
+        width: 65px;
+        height: 65px;
+    }
+
+    .header__content_right{
+        margin-left: 25px;
+        
+    }
+
+    .header__contact_button{
+        margin-left: 10px;
+    }
+
+    .button {
+        height: 35px;
+        padding: 12px 12px;
+        padding-right: 12px;
+        padding-left: 12px;
+        font-size: 12px;
+        line-height: 14px;
+    }
+}
+
+@media (max-width: 321px) {
+
+    .header{
+        max-height: 66px;
+    }
+
+    .brand-info-text-style {
+
+        font-size: 12px;
+    }
+    
+    .studio-name-style{
+
+        font-size: 12px;
+    }
+
+    .header-text1{
+        margin-left: 15px;
+        width: 120px;
+    }
+
+    .header-text2{
+        display: none;
+        margin-left: 30px;
+        width: 100px;
+    }
+
+    .header__menu{
+        margin-top: 1px;
+        margin-left: 10px;
+    }
+
+    .header__menu_button{
+        width: 55px;
+        height: 55px;
+    }
+
+    .header__content_right{
+        margin-left: 25px;
+        
+    }
+
+    .header__contact_button{
+        display: none;
+        margin-left: 10px;
+    }
+
+    .button {
+        height: 35px;
+        padding: 12px 12px;
+        padding-right: 12px;
+        padding-left: 12px;
+        font-size: 12px;
+        line-height: 14px;
+    }
+}

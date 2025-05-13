@@ -1,0 +1,478 @@
+.Contuct-Us{
+    margin-top: 150px;
+}
+
+.Contuct-us-image-contucts{
+    max-width: 1440px;
+    height: 533px;
+    position: relative;
+    overflow: visible;
+    display: flex;
+    
+    justify-content: space-between;
+}
+
+.Contuct-us-image1{
+    position: absolute;
+    margin-top: 10px;
+    margin-left: -185px;
+    width: 800px;
+    height: 533px;
+    object-fit: contain;
+}
+
+.overlay {
+    margin-top: 10px;
+    margin-left: 332px;
+    position: absolute;
+    width: 218px; 
+    height: 533px;
+    background: rgb(18, 20, 29);
+}
+
+.contuct-us-info{
+    margin-top: 10px;
+    margin-left: 650px;
+    max-width: 550px;
+    max-height: 525px;
+    position: relative;
+}
+
+.contuct-us-info::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 2px solid rgba(198, 16, 15, 0.3);
+    z-index: -1;
+    animation: pulseBorder 4s infinite ease-in-out;
+    border-radius: 5px;
+}
+
+@keyframes pulseBorder {
+    0%, 100% { 
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    50% { 
+        transform: scale(1.02);
+        opacity: 0.8;
+    }
+}
+
+.contuct-us-title-text{
+    font-size: 80px;
+    font-weight: 400;
+    line-height: 88px;
+    letter-spacing: 1px;
+    text-align: left;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.contuct-us-title-text::after {
+    content: '';
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: rgba(198, 16, 15, 0.3);
+    animation: underlineGrow 4s infinite alternate;
+}
+
+@keyframes underlineGrow {
+    from { width: 0; left: 0; }
+    to { width: 100%; left: 0; }
+}
+
+.contuct-us-info-name{
+    margin-top: 63px;
+    width: 495px;
+    height: 45px;
+    box-sizing: border-box;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgb(18, 20, 29);
+
+}
+.name-text-contuct{
+    padding-top: 15px;
+    padding-left: 28px;
+}
+
+.name-text-contuct::placeholder{
+
+    color: rgba(255, 255, 255, 0.8);
+    font-family: Roboto;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0%;
+    text-align: left;
+}
+
+.contuct-us-info-mail{
+    margin-top: 20px;
+    width: 495px;
+    height: 45px;
+    box-sizing: border-box;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgb(18, 20, 29);
+
+}
+.mail-text-contuct{
+    padding-top: 15px;
+    padding-left: 28px;
+}
+
+.mail-text-contuct::placeholder{
+
+    color: rgba(255, 255, 255, 0.8);
+    font-family: Roboto;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0%;
+    text-align: left;
+}
+
+.contuct-us-info-url{
+    margin-top: 20px;
+    width: 495px;
+    height: 45px;
+    box-sizing: border-box;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgb(18, 20, 29);
+
+}
+.url-text-contuct{
+    padding-top: 15px;
+    padding-left: 27px;
+}
+
+.url-text-contuct::placeholder{
+
+    color: rgba(255, 255, 255, 0.8);
+    font-family: Roboto;
+    font-size: 21px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0%;
+    text-align: left;
+}
+
+.contuct-us-info-roject{
+    margin-top: 20px;
+    width: 495px;
+    height: 104px;
+    box-sizing: border-box;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgb(18, 20, 29);
+
+}
+.project-text-contuct{
+    padding-top: 15px;
+    padding-left: 27px;
+}
+
+.project-text-contuct::placeholder{
+
+    color: rgba(255, 255, 255, 0.8);
+    font-family: Roboto;
+    font-size: 21px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0%;
+    text-align: left;
+}
+
+.btn3 {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    margin-top: 21px;
+    display: inline-block;
+    height: 43px;
+    padding-left: 15px;
+    padding-right: 14px;
+    padding-top: 10px;
+    background-color: #C6100F;
+    border-radius: 4px;
+    color: rgba(255, 255, 255, 0.8);
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: 700;
+
+    letter-spacing: 0%;
+    text-align: center;
+}
+
+.btn3::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    left: -100%;
+    background: #9a0b0b;
+    transition: left 1s cubic-bezier(.77,.01,.46,1.06);
+    z-index: -1;
+}
+  
+.btn3, a.btn3:hover::before {
+    left: 0;
+}
+
+@media (max-width: 1025px) {
+    .Contuct-us-image-contucts{
+        max-width: 1025px;
+        height: 533px;
+    }
+    
+    .Contuct-us-image1{
+        position: absolute;
+        margin-top: 10px;
+        margin-left: -185px;
+        max-width: 600px;
+        width: 100%;
+        height: 533px;
+        object-fit: contain;
+    }
+    
+    .overlay {
+        margin-top: 37px;
+        margin-left: 300px;
+        position: absolute;
+        width: 118px;
+        height: 480px;
+        background: rgb(18, 20, 29);
+    }
+    
+    .contuct-us-info{
+        margin-top: 10px;
+        margin-left: 470px;
+        max-width: 550px;
+        max-height: 525px;
+    }
+
+    .contuct-us-title-text{
+        font-size: 75px;
+    }
+
+    .contuct-us-info-name{
+        margin-top: 35px;
+    }
+
+    .btn3, a.btn3 {
+        font-weight: 400;
+    }
+}
+
+
+@media (max-width: 770px) {
+    .Contuct-us-image-contucts{
+        max-width: 770px;
+        height: 533px;
+    }
+    
+    .Contuct-us-image1{
+        position: absolute;
+        margin-top: 40px;
+        margin-left: -165px;
+        max-width: 480px;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+    
+    .overlay {
+        margin-top: 39px;
+        margin-left: 225px;
+        position: absolute;
+        width: 90px;
+        height: 383px;
+        background: rgb(18, 20, 29);
+    }
+    
+    .contuct-us-info{
+        margin-top: 10px;
+        margin-left: 370px;
+        max-width: 450px;
+        max-height: 420px;
+    }
+
+    .contuct-us-title-text{
+        font-size: 58px;
+    }
+
+    .contuct-us-info-name{
+        margin-top: 10px;
+        width: 350px;
+    }
+    
+    .name-text-contuct::placeholder{
+        font-size: 18px;
+    }
+    
+    .contuct-us-info-mail{
+        margin-top: 20px;
+        width: 350px;
+    }
+    
+    .mail-text-contuct::placeholder{
+        font-size: 18px;
+    }
+    
+    .contuct-us-info-url{
+        width: 350px;
+    
+    }
+    
+    .url-text-contuct::placeholder{
+        font-size: 18px;
+    }
+    
+    .contuct-us-info-roject{
+        width: 350px;
+        height: 45px;
+    
+    }
+    
+    .project-text-contuct::placeholder{
+        font-size: 18px;
+    }
+    
+    .btn3, a.btn3 {
+        margin-top: 20px;
+        font-weight: 400;
+    }
+}
+
+@media (max-width: 481px) {
+
+    .Contuct-Us{
+        margin-top: 140px;
+    }
+    .Contuct-us-image-contucts{
+        max-width: 480px;
+        height: 533px;
+    }
+    
+    .Contuct-us-image1{
+        display: none;
+    }
+    
+    .overlay {
+        display: none;
+    }
+    
+    .contuct-us-info{
+        margin-top: 10px;
+        margin-left: 47px;
+        max-width: 450px;
+        max-height: 420px;
+    }
+
+    .btn3, a.btn3 {
+        height: 35px;
+        padding: 12px 12px;
+        padding-right: 12px;
+        padding-left: 12px;
+        font-size: 14px;
+        line-height: 14px;
+    }
+}
+
+@media (max-width: 321px) {
+
+    .Contuct-Us{
+        margin-top: 100px;
+    }
+    .Contuct-us-image-contucts{
+        max-width: 320px;
+        max-height: 470px;
+    }
+    
+    .Contuct-us-image1{
+        display: none;
+    }
+    
+    .overlay {
+        display: none;
+    }
+    
+    .contuct-us-info{
+        margin-top: 0px;
+        margin-left: -2px;
+        max-width: 300px;
+        max-height: 400px;
+    }
+    .contuct-us-title{
+        margin-left: 5px;
+    }
+    .contuct-us-title-text{
+        font-size: 46px;
+    }
+
+    .name-text-contuct,
+    .mail-text-contuct,
+    .url-text-contuct,
+    .project-text-contuct{
+        padding-top: 10px;
+        padding-left: 15px;
+    }
+
+    .contuct-us-info-name{
+        margin-top: 10px;
+        width: 295px;
+        height: 40px;
+    }
+    
+    .name-text-contuct::placeholder{
+        font-size: 16px;
+    }
+    
+    .contuct-us-info-mail{
+        margin-top: 20px;
+        width: 295px;
+        height: 40px;
+    }
+    
+    .mail-text-contuct::placeholder{
+        font-size: 16px;
+    }
+    
+    .contuct-us-info-url{
+        width: 295px;
+        height: 40px;
+    
+    }
+    
+    .url-text-contuct::placeholder{
+        font-size: 16px;
+    }
+    
+    .contuct-us-info-roject{
+        width: 295px;
+        height: 40px;
+    
+    }
+    
+    .project-text-contuct::placeholder{
+        font-size: 16px;
+    }
+
+    .btn3, a.btn3 {
+        height: 35px;
+        padding: 12px 12px;
+        padding-right: 12px;
+        padding-left: 12px;
+        font-size: 14px;
+        line-height: 14px;
+    }
+}
