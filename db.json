@@ -391,6 +391,20 @@
       "role": "admin",
       "agreedToTerms": true,
       "createdAt": "2025-05-13T14:14:01.217Z"
+    },
+    {
+      "id": "c7af",
+      "phone": "+375 29 622-48-61",
+      "email": "ertgxgxgx@mail.ru",
+      "birthDate": "1988-03-09",
+      "password": "$iSy211uayT?FAW!",
+      "firstName": "рар",
+      "lastName": "рарарар",
+      "middleName": "арарарар",
+      "nickname": "рр22ваваа5_staаааавыраыроаырарыrп",
+      "role": "customer",
+      "agreedToTerms": true,
+      "createdAt": "2025-05-13T14:51:37.937Z"
     }
   ],
   "orders": [

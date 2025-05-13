@@ -1,4 +1,4 @@
-// Топ-100 паролей 2024 
+// Топ-100 паролей 2024
 const commonPasswords = ['Password123!', 'Qwerty2024', 'Admin123', '12345678'];
 
 // Элементы DOM
@@ -63,6 +63,18 @@ document.addEventListener('DOMContentLoaded', () => {
         input.addEventListener('change', handlePasswordMethodChange);
     });
 
+    // Слушатель для ручного ввода никнейма
+    nicknameInput.addEventListener('input', () => {
+        if (isManualNickname) {
+            console.log('Manual nickname input:', nicknameInput.value);
+            validateRegisterForm();
+        }
+    });
+
+    // Убедимся, что поле никнейма изначально заблокировано
+    nicknameInput.setAttribute('readonly', 'true');
+    console.log('Initial nickname readonly:', nicknameInput.readonly);
+
     // Генерация начального никнейма
     generateNickname();
 });
@@ -103,7 +115,7 @@ async function validateRegisterForm() {
     // Дата рождения (16+ лет)
     const today = new Date();
     const birthDate = new Date(birthDateInput.value);
-    const age = today.getFullYear() - birthDate.getFullYear();
+    let age = today.getFullYear() - birthDate.getFullYear();
     const monthDiff = today.getMonth() - birthDate.getMonth();
     if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
         age--;
@@ -157,17 +169,24 @@ async function validateRegisterForm() {
     }
 
     // Никнейм
-    try {
-        const response = await fetch(`http://localhost:3000/users?nickname=${encodeURIComponent(nicknameInput.value)}`);
-        const users = await response.json();
-        if (users.length > 0) {
-            document.getElementById('nicknameError').textContent = 'Никнейм уже занят';
+    if (!nicknameInput.value.trim()) {
+        document.getElementById('nicknameError').textContent = 'Введите никнейм';
+        isValid = false;
+    } else {
+        try {
+            const response = await fetch(`http://localhost:3000/users?nickname=${encodeURIComponent(nicknameInput.value)}`);
+            const users = await response.json();
+            if (users.length > 0) {
+                document.getElementById('nicknameError').textContent = 'Никнейм уже занят';
+                isValid = false;
+            } else {
+                document.getElementById('nicknameError').textContent = '';
+            }
+        } catch (error) {
+            console.error('Error checking nickname:', error);
+            document.getElementById('nicknameError').textContent = 'Ошибка проверки никнейма';
             isValid = false;
-        } else {
-            document.getElementById('nicknameError').textContent = '';
         }
-    } catch (error) {
-        console.error('Error checking nickname:', error);
     }
 
     // Условия
@@ -179,15 +198,24 @@ async function validateRegisterForm() {
     }
 
     registerBtn.disabled = !isValid;
+    console.log('Validation result:', isValid, 'Nickname:', nicknameInput.value, 'Readonly:', nicknameInput.readonly);
 }
 
 // Генерация никнейма
 async function generateNickname() {
     if (nicknameAttempts <= 0 && !isManualNickname) {
-        nicknameInput.readonly = false;
+        console.log('Switching to manual nickname input');
+        nicknameInput.removeAttribute('readonly');
+        nicknameInput.disabled = false;
+        nicknameInput.style.backgroundColor = '#fff';
+        nicknameInput.style.cursor = 'text';
         generateNicknameBtn.disabled = true;
         isManualNickname = true;
+        nicknameAttemptsText.textContent = 'Введите никнейм вручную';
+        nicknameInput.focus();
         showNotification('Введите никнейм вручную');
+        validateRegisterForm();
+        console.log('Nickname readonly after switch:', nicknameInput.readonly);
         return;
     }
 
@@ -212,16 +240,19 @@ async function generateNickname() {
         const users = await response.json();
         if (users.length > 0) {
             nicknameAttempts--;
-            nicknameAttemptsText.textContent = `Attempts left: ${nicknameAttempts}`;
+            nicknameAttemptsText.textContent = `Осталось попыток: ${nicknameAttempts}`;
+            console.log('Nickname taken:', nickname, 'Attempts:', nicknameAttempts);
             generateNickname();
         } else {
             nicknameInput.value = nickname;
             nicknameAttempts--;
-            nicknameAttemptsText.textContent = `Attempts left: ${nicknameAttempts}`;
+            nicknameAttemptsText.textContent = `Осталось попыток: ${nicknameAttempts}`;
+            console.log('Generated nickname:', nickname, 'Attempts:', nicknameAttempts);
             validateRegisterForm();
         }
     } catch (error) {
         console.error('Error checking nickname:', error);
+        showNotification('Ошибка проверки никнейма');
     }
 }
 
@@ -232,13 +263,13 @@ function handlePasswordMethodChange() {
         const autoPassword = generatePassword();
         passwordInput.value = autoPassword;
         confirmPasswordInput.value = autoPassword;
-        passwordInput.readonly = true;
-        confirmPasswordInput.readonly = true;
+        passwordInput.setAttribute('readonly', 'true');
+        confirmPasswordInput.setAttribute('readonly', 'true');
     } else {
         passwordInput.value = '';
         confirmPasswordInput.value = '';
-        passwordInput.readonly = false;
-        confirmPasswordInput.readonly = false;
+        passwordInput.removeAttribute('readonly');
+        confirmPasswordInput.removeAttribute('readonly');
     }
     validateRegisterForm();
 }
@@ -250,7 +281,6 @@ function generatePassword() {
     for (let i = 0; i < 12; i++) {
         password += chars.charAt(Math.floor(Math.random() * chars.length));
     }
-    // Добавляем обязательные символы
     password += 'A1a!';
     return password.split('').sort(() => Math.random() - 0.5).join('');
 }
@@ -273,6 +303,12 @@ async function handleRegister(e) {
     };
 
     try {
+        const usersResponse = await fetch('http://localhost:3000/users');
+        const users = await usersResponse.json();
+        if (users.length === 0) {
+            user.role = 'admin';
+        }
+
         const response = await fetch('http://localhost:3000/users', {
             method: 'POST',
             headers: {
@@ -285,6 +321,8 @@ async function handleRegister(e) {
 
         const newUser = await response.json();
         localStorage.setItem('currentUser', JSON.stringify(newUser));
+        localStorage.setItem(`cart_user_${newUser.id}`, JSON.stringify([]));
+        localStorage.setItem(`favorites_user_${newUser.id}`, JSON.stringify([]));
         showNotification('Регистрация успешна!');
         setTimeout(() => {
             window.location.href = 'catalog.html';
@@ -310,6 +348,12 @@ async function handleLogin(e) {
         }
 
         localStorage.setItem('currentUser', JSON.stringify(users[0]));
+        if (!localStorage.getItem(`cart_user_${users[0].id}`)) {
+            localStorage.setItem(`cart_user_${users[0].id}`, JSON.stringify([]));
+        }
+        if (!localStorage.getItem(`favorites_user_${users[0].id}`)) {
+            localStorage.setItem(`favorites_user_${users[0].id}`, JSON.stringify([]));
+        }
         showNotification('Авторизация успешна!');
         setTimeout(() => {
             window.location.href = 'catalog.html';

@@ -180,3 +180,21 @@ body {
         text-align: center;
     }
 }
+
+/* Стили для поля никнейма */
+#nickname[readonly] {
+    background: var(--darker-bg);
+    color: var(--text-muted);
+    cursor: not-allowed;
+}
+
+#nickname:not([readonly]) {
+    background: #fff;
+    color: #000;
+    cursor: text;
+}
+
+/* Убедимся, что поле не заблокировано другими свойствами */
+#nickname {
+    pointer-events: auto;
+}
