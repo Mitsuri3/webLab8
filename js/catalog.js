@@ -32,6 +32,7 @@ const paginationContainer = document.getElementById('pagination');
 // Состояние приложения
 let cart = [];
 let favorites = [];
+let currentUser = null;
 let currentProducts = [];
 let allProducts = [];
 let currentPage = 1;
@@ -77,6 +78,18 @@ document.addEventListener('DOMContentLoaded', async () => {
         localStorage.setItem('favorites', JSON.stringify(favorites));
     }
 
+    try {
+        const storedUser = JSON.parse(localStorage.getItem('currentUser'));
+        if (storedUser && storedUser.id && storedUser.email) {
+            currentUser = storedUser;
+            console.log('Loaded current user:', currentUser);
+            updateAuthButtons();
+        }
+    } catch (error) {
+        console.error('Error loading current user:', error);
+        currentUser = null;
+    }
+
     await fetchAllProducts();
     renderCategories();
     updateCart();
@@ -87,6 +100,28 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 // Установка слушателей событий
 function setupEventListeners() {
+    const registerButton = document.getElementById('registerButton');
+    const loginButton = document.getElementById('loginButton');
+    registerButton.addEventListener('click', () => {
+        if (currentUser) {
+            currentUser = null;
+            localStorage.removeItem('currentUser');
+            updateAuthButtons();
+            showNotification('Вы вышли из аккаунта');
+        } else {
+            window.location.href = 'auth.html?tab=register';
+        }
+    });
+    loginButton.addEventListener('click', () => {
+        if (currentUser) {
+            currentUser = null;
+            localStorage.removeItem('currentUser');
+            updateAuthButtons();
+            showNotification('Вы вышли из аккаунта');
+        } else {
+            window.location.href = 'auth.html?tab=login';
+        }
+    });
     searchInput.addEventListener('input', debounce(handleSearch, 300));
     sortSelect.addEventListener('change', handleSort);
     categoryFilter.addEventListener('click', handleCategoryFilter);
@@ -99,6 +134,19 @@ function setupEventListeners() {
     closeFavorites.addEventListener('click', hideFavorites);
     clearFavoritesBtn.addEventListener('click', handleClearFavorites);
     setupCartEventListeners();
+}
+
+function updateAuthButtons() {
+    const registerButton = document.getElementById('registerButton');
+    const loginButton = document.getElementById('loginButton');
+    if (currentUser) {
+        registerButton.textContent = 'Выйти';
+        loginButton.style.display = 'none';
+    } else {
+        registerButton.textContent = 'Зарегистрироваться';
+        loginButton.textContent = 'Авторизоваться';
+        loginButton.style.display = 'inline-block';
+    }
 }
 
 // Делегация событий для корзины
@@ -532,16 +580,52 @@ function hideCart() {
 }
 
 // Оформление заказа
-function handleCheckout() {
+async function handleCheckout() {
     if (cart.length === 0) {
         showNotification('Ваша корзина пуста!');
         return;
     }
-    showNotification('Оформление заказа успешно!');
-    cart = [];
-    localStorage.setItem('cart', JSON.stringify(cart));
-    updateCart();
-    hideCart();
+
+    if (!currentUser) {
+        showNotification('Пожалуйста, войдите в аккаунт для оформления заказа!');
+        window.location.href = 'auth.html?tab=login';
+        return;
+    }
+
+    try {
+        const order = {
+            userId: currentUser.id,
+            items: cart.map(item => ({
+                productId: item.id,
+                name: item.name,
+                price: item.price,
+                quantity: item.quantity
+            })),
+            total: cart.reduce((sum, item) => sum + item.price * item.quantity, 0),
+            orderDate: new Date().toISOString(),
+            status: 'completed'
+        };
+
+        const response = await fetch('http://localhost:3000/orders', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(order)
+        });
+
+        if (!response.ok) throw new Error('Ошибка при создании заказа');
+
+        console.log('Order created:', await response.json());
+        showNotification('Заказ успешно оформлен!');
+        cart = [];
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCart();
+        hideCart();
+    } catch (error) {
+        console.error('Error creating order:', error);
+        showNotification('Ошибка при оформлении заказа. Попробуйте позже.');
+    }
 }
 
 // Обработчик добавления/удаления в избранное

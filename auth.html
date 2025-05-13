@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GORM - Registration & Authorization</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="./auth.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-row">
+                <div class="header-left">
+                    <div class="header-logo">
+                        <img src="./images/IMAGE.svg" alt="logo" class="logo-spin">
+                    </div>
+                    <div class="header-text1">
+                        <p class="brand-info-text-style">Branding &</p>
+                        <p class="studio-name-style">Design Studio</p>
+                    </div>
+                </div>
+                <div class="header__content_right">
+                    <a href="catalog.html" class="header__contact_button button pulse">Back to Catalog</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="auth-container">
+            <div class="container">
+                <h1 class="auth-title animate__animated animate__fadeInDown">Registration / Authorization</h1>
+                <div class="auth-tabs">
+                    <button class="auth-tab active" data-tab="register">Register</button>
+                    <button class="auth-tab" data-tab="login">Login</button>
+                </div>
+
+                <!-- Registration Form -->
+                <form id="registerForm" class="auth-form animate__animated animate__fadeIn">
+                    <div class="form-group">
+                        <label for="phone">Phone Number <span class="required">*</span></label>
+                        <input type="tel" id="phone" name="phone" required placeholder="+375 (XX) XXX-XX-XX">
+                        <p class="error-message" id="phoneError"></p>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" required>
+                        <p class="error-message" id="emailError"></p>
+                    </div>
+                    <div class="form-group">
+                        <label for="birthDate">Date of Birth <span class="required">*</span></label>
+                        <input type="date" id="birthDate" name="birthDate" required>
+                        <p class="error-message" id="birthDateError"></p>
+                    </div>
+                    <div class="form-group">
+                        <label>Password Method <span class="required">*</span></label>
+                        <div class="password-method">
+                            <label><input type="radio" name="passwordMethod" value="manual" checked> Manual</label>
+                            <label><input type="radio" name="passwordMethod" value="auto"> Auto-generate</label>
+                        </div>
+                    </div>
+                    <div class="form-group password-group">
+                        <label for="password">Password <span class="required">*</span></label>
+                        <input type="password" id="password" name="password" required>
+                        <p class="error-message" id="passwordError"></p>
+                    </div>
+                    <div class="form-group password-group">
+                        <label for="confirmPassword">Confirm Password <span class="required">*</span></label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" required>
+                        <p class="error-message" id="confirmPasswordError"></p>
+                    </div>
+                    <div class="form-group">
+                        <label for="firstName">First Name <span class="required">*</span></label>
+                        <input type="text" id="firstName" name="firstName" required>
+                        <p class="error-message" id="firstNameError"></p>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name <span class="required">*</span></label>
+                        <input type="text" id="lastName" name="lastName" required>
+                        <p class="error-message" id="lastNameError"></p>
+                    </div>
+                    <div class="form-group">
+                        <label for="middleName">Middle Name</label>
+                        <input type="text" id="middleName" name="middleName">
+                    </div>
+                    <div class="form-group">
+                        <label for="nickname">Nickname <span class="required">*</span></label>
+                        <input type="text" id="nickname" name="nickname" readonly>
+                        <button type="button" id="generateNickname" class="button">Generate Nickname</button>
+                        <p class="error-message" id="nicknameError"></p>
+                        <p id="nicknameAttempts">Attempts left: 5</p>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="terms" name="terms" required>
+                            I agree to the <a href="#" class="terms-link">User Agreement</a> <span class="required">*</span>
+                        </label>
+                        <p class="error-message" id="termsError"></p>
+                    </div>
+                    <button type="submit" id="registerBtn" class="button" disabled>Register</button>
+                </form>
+
+                <!-- Login Form -->
+                <form id="loginForm" class="auth-form animate__animated animate__fadeIn" style="display: none;">
+                    <div class="form-group">
+                        <label for="loginEmail">Email <span class="required">*</span></label>
+                        <input type="email" id="loginEmail" name="loginEmail" required>
+                        <p class="error-message" id="loginEmailError"></p>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password <span class="required">*</span></label>
+                        <input type="password" id="loginPassword" name="loginPassword" required>
+                        <p class="error-message" id="loginPasswordError"></p>
+                    </div>
+                    <button type="submit" id="loginBtn" class="button">Login</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Notification -->
+        <div class="notification" id="notification">
+            <div class="notification-content animate__animated animate__fadeInUp">
+                <span class="notification-message" id="notificationMessage"></span>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer animate__animated animate__fadeInUp">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>GORM Studio</h3>
+                    <p>Premium branding and design solutions for modern businesses.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-behance"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Portfolio</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Design Street, Creative City</p>
+                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                    <p><i class="fas fa-envelope"></i> info@gormstudio.com</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to get updates and special offers.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your Email">
+                        <button type="submit" class="button">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2023 GORM Studio. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="./auth.js"></script>
+</body>
+</html>
