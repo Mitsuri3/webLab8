@@ -158,6 +158,16 @@ body {
     right: -5px;
 }
 
+.header__auth {
+    display: flex;
+    gap: 10px;
+}
+
+.header__auth_button {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+}
+
 @media (max-width: 768px) {
     .header-row {
         flex-direction: column;
@@ -188,6 +198,17 @@ body {
         padding: 8px 12px;
         font-size: 0.9rem;
     }
+
+    .header__auth {
+        flex-direction: row;
+        gap: 5px;
+    }
+
+    .header__auth_button {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+
 }
 
 /* Основной контент */
