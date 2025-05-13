@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GORM - Feedback</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="./feedback.css">
+    <link rel="stylesheet" href="./catalog.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-row">
+                <div class="header-left">
+                    <div class="header-logo">
+                        <img src="./images/IMAGE.svg" alt="logo" class="logo-spin">
+                    </div>
+                    <div class="header-text1">
+                        <p class="brand-info-text-style">Branding &</p>
+                        <p class="studio-name-style">Design Studio</p>
+                    </div>
+                </div>
+                <div class="header__content_right">
+                    <a href="catalog.html" class="header__contact_button button pulse">Back to Catalog</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="feedback-container">
+            <div class="container">
+                <h1 class="feedback-title animate__animated animate__fadeInDown">Leave Your Feedback</h1>
+                <form id="feedbackForm" class="feedback-form animate__animated animate__fadeIn">
+                    <div class="form-group">
+                        <label for="productSelect">_Select Product <span class="required">*</span></label>
+                        <select id="productSelect" name="productSelect" required>
+                            <option value="">Choose a product</option>
+                        </select>
+                        <p class="error-message" id="productSelectError"></p>
+                    </div>
+                    <div class="form-group">
+                        <label for="rating">Rating <span class="required">*</span></label>
+                        <select id="rating" name="rating" required>
+                            <option value="">Select rating</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                        <p class="error-message" id="ratingError"></p>
+                    </div>
+                    <div class="form-group">
+                        <label for="comment">Comment <span class="required">*</span></label>
+                        <textarea id="comment" name="comment" required minlength="10"></textarea>
+                        <p class="error-message" id="commentError"></p>
+                    </div>
+                    <button type="submit" id="submitFeedback" class="button" disabled>Submit Feedback</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Notification -->
+        <div class="notification" id="notification">
+            <div class="notification-content animate__animated animate__fadeInUp">
+                <span class="notification-message" id="notificationMessage"></span>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer animate__animated animate__fadeInUp">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>GORM Studio</h3>
+                    <p>Premium branding and design solutions for modern businesses.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-behance"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Portfolio</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Design Street, Creative City</p>
+                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                    <p><i class="fas fa-envelope"></i> info@gormstudio.com</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to get updates and special offers.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your Email">
+                        <button type="submit" class="button">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2023 GORM Studio. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="./feedback.js"></script>
+</body>
+</html>

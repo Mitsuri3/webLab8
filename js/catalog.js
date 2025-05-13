@@ -40,60 +40,58 @@ const itemsPerPage = 4;
 
 // Инициализация приложения
 document.addEventListener('DOMContentLoaded', async () => {
-    // Загрузка и валидация корзины
-    try {
-        const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
-        cart = storedCart.filter(item => 
-            item && 
-            Number.isInteger(Number(item.id)) && 
-            item.id > 0 && 
-            item.name && 
-            typeof item.price === 'number' && 
-            Number.isInteger(item.quantity) && 
-            item.quantity > 0
-        );
-        console.log('Loaded cart from localStorage:', JSON.stringify(cart));
-        localStorage.setItem('cart', JSON.stringify(cart));
-    } catch (error) {
-        console.error('Error parsing cart from localStorage:', error);
-        cart = [];
-        localStorage.setItem('cart', JSON.stringify(cart));
-    }
-
-    // Загрузка и валидация избранного
-    try {
-        const storedFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
-        favorites = storedFavorites.filter(item => 
-            item && 
-            Number.isInteger(Number(item.id)) && 
-            item.id > 0 && 
-            item.name && 
-            typeof item.price === 'number'
-        );
-        console.log('Loaded favorites from localStorage:', JSON.stringify(favorites));
-        localStorage.setItem('favorites', JSON.stringify(favorites));
-    } catch (error) {
-        console.error('Error parsing favorites from localStorage:', error);
-        favorites = [];
-        localStorage.setItem('favorites', JSON.stringify(favorites));
-    }
-
+    // Загрузка текущего пользователя и данных
     try {
         const storedUser = JSON.parse(localStorage.getItem('currentUser'));
         if (storedUser && storedUser.id && storedUser.email) {
             currentUser = storedUser;
             console.log('Loaded current user:', currentUser);
+            // Загружаем корзину и избранное для текущего пользователя
+            try {
+                cart = JSON.parse(localStorage.getItem(`cart_user_${currentUser.id}`)) || [];
+                favorites = JSON.parse(localStorage.getItem(`favorites_user_${currentUser.id}`)) || [];
+                // Валидация корзины
+                cart = cart.filter(item => 
+                    item && 
+                    Number.isInteger(Number(item.id)) && // Исправлено: убрано "isIntegeratsbyNumber"
+                    item.id > 0 && 
+                    item.name && 
+                    typeof item.price === 'number' && 
+                    Number.isInteger(item.quantity) && 
+                    item.quantity > 0
+                );
+                // Валидация избранного
+                favorites = favorites.filter(item => 
+                    item && 
+                    Number.isInteger(Number(item.id)) && 
+                    item.id > 0 && 
+                    item.name && 
+                    typeof item.price === 'number'
+                );
+                console.log('Loaded cart from localStorage:', JSON.stringify(cart));
+                console.log('Loaded favorites from localStorage:', JSON.stringify(favorites));
+                localStorage.setItem(`cart_user_${currentUser.id}`, JSON.stringify(cart));
+                localStorage.setItem(`favorites_user_${currentUser.id}`, JSON.stringify(favorites));
+            } catch (error) {
+                console.error('Error parsing user data:', error);
+                cart = [];
+                favorites = [];
+                localStorage.setItem(`cart_user_${currentUser.id}`, JSON.stringify(cart));
+                localStorage.setItem(`favorites_user_${currentUser.id}`, JSON.stringify(favorites));
+            }
             updateAuthButtons();
+            updateCart();
+            updateFavorites();
         }
     } catch (error) {
         console.error('Error loading current user:', error);
         currentUser = null;
+        cart = [];
+        favorites = [];
     }
 
     await fetchAllProducts();
     renderCategories();
-    updateCart();
-    updateFavorites();
     setupEventListeners();
     fetchProducts();
 });
@@ -102,26 +100,49 @@ document.addEventListener('DOMContentLoaded', async () => {
 function setupEventListeners() {
     const registerButton = document.getElementById('registerButton');
     const loginButton = document.getElementById('loginButton');
+    const feedbackButton = document.getElementById('feedbackButton');
+    const adminButton = document.getElementById('adminButton');
+
     registerButton.addEventListener('click', () => {
         if (currentUser) {
+            // Очищаем только локальные данные и текущего пользователя
             currentUser = null;
             localStorage.removeItem('currentUser');
+            cart = [];
+            favorites = [];
             updateAuthButtons();
+            updateCart();
+            updateFavorites();
             showNotification('Вы вышли из аккаунта');
         } else {
             window.location.href = 'auth.html?tab=register';
         }
     });
+
     loginButton.addEventListener('click', () => {
         if (currentUser) {
+            // Очищаем только локальные данные и текущего пользователя
             currentUser = null;
             localStorage.removeItem('currentUser');
+            cart = [];
+            favorites = [];
             updateAuthButtons();
+            updateCart();
+            updateFavorites();
             showNotification('Вы вышли из аккаунта');
         } else {
             window.location.href = 'auth.html?tab=login';
         }
     });
+
+    feedbackButton.addEventListener('click', () => {
+        window.location.href = 'feedback.html';
+    });
+
+    adminButton.addEventListener('click', () => {
+        window.location.href = 'admin.html';
+    });
+
     searchInput.addEventListener('input', debounce(handleSearch, 300));
     sortSelect.addEventListener('change', handleSort);
     categoryFilter.addEventListener('click', handleCategoryFilter);
@@ -139,13 +160,24 @@ function setupEventListeners() {
 function updateAuthButtons() {
     const registerButton = document.getElementById('registerButton');
     const loginButton = document.getElementById('loginButton');
+    const feedbackButton = document.getElementById('feedbackButton');
+    const adminButton = document.getElementById('adminButton');
     if (currentUser) {
         registerButton.textContent = 'Выйти';
         loginButton.style.display = 'none';
+        feedbackButton.style.display = 'inline-block';
+        adminButton.style.display = currentUser.role === 'admin' ? 'inline-block' : 'none';
     } else {
         registerButton.textContent = 'Зарегистрироваться';
         loginButton.textContent = 'Авторизоваться';
         loginButton.style.display = 'inline-block';
+        feedbackButton.style.display = 'inline-block';
+        adminButton.style.display = 'none';
+        // Явно сбрасываем локальные данные для неавторизованного состояния
+        cart = [];
+        favorites = [];
+        updateCart();
+        updateFavorites();
     }
 }
 
@@ -461,6 +493,11 @@ async function handleProductClick(e) {
 
 // Обработчик добавления в корзину
 function handleAddToCart(product) {
+    if (!currentUser) {
+        showNotification('Пожалуйста, войдите в аккаунт для добавления в корзину!');
+        window.location.href = 'auth.html?tab=login';
+        return;
+    }
     console.log('Adding to cart:', product);
     if (!product || !product.id || !product.name || !product.price) {
         console.error('Invalid product data:', product);
@@ -477,7 +514,7 @@ function handleAddToCart(product) {
         cart.push({ ...product, id: productId, quantity: 1 });
     }
     console.log('Cart after adding:', JSON.stringify(cart));
-    localStorage.setItem('cart', JSON.stringify(cart));
+    localStorage.setItem(`cart_user_${currentUser.id}`, JSON.stringify(cart));
     updateCart();
     showNotification(`${product.name} добавлен в корзину!`);
 }
@@ -485,7 +522,9 @@ function handleAddToCart(product) {
 // Обновление корзины
 function updateCart() {
     console.log('Updating cart:', JSON.stringify(cart));
-    localStorage.setItem('cart', JSON.stringify(cart));
+    if (currentUser) {
+        localStorage.setItem(`cart_user_${currentUser.id}`, JSON.stringify(cart));
+    }
     cartCount.textContent = cart.reduce((sum, item) => sum + (item.quantity || 0), 0) || 0;
     cartItemsContainer.innerHTML = '';
     let total = 0;
@@ -521,6 +560,7 @@ function updateCart() {
 
 // Изменение количества товара
 function handleQuantityChange(button, productId) {
+    if (!currentUser) return;
     console.log('Handling quantity change, ID:', productId, 'Cart:', JSON.stringify(cart));
     const cartItem = cart.find(item => item.id === Number(productId));
     if (!cartItem) {
@@ -536,7 +576,7 @@ function handleQuantityChange(button, productId) {
         cart = cart.map(item =>
             item.id === Number(productId) ? { ...item, quantity: item.quantity + 1 } : item
         );
-    } else if (cartItem.quantity > 1) {
+    } else if (cartItem.quantity > 1) { // Исправлено: убрано "profundamente"
         cart = cart.map(item =>
             item.id === Number(productId) ? { ...item, quantity: item.quantity - 1 } : item
         );
@@ -545,13 +585,14 @@ function handleQuantityChange(button, productId) {
     }
 
     console.log('Cart after quantity change:', JSON.stringify(cart));
-    localStorage.setItem('cart', JSON.stringify(cart));
+    localStorage.setItem(`cart_user_${currentUser.id}`, JSON.stringify(cart));
     updateCart();
     showNotification(`Количество обновлено для ${cartItem.name}`);
 }
 
 // Удаление товара из корзины
 function handleRemoveFromCart(productId) {
+    if (!currentUser) return;
     console.log('Handling remove from cart, ID:', productId, 'Cart:', JSON.stringify(cart));
     const cartItem = cart.find(item => item.id === Number(productId));
     if (!cartItem) {
@@ -562,7 +603,7 @@ function handleRemoveFromCart(productId) {
 
     cart = cart.filter(item => item.id !== Number(productId));
     console.log('Cart after removal:', JSON.stringify(cart));
-    localStorage.setItem('cart', JSON.stringify(cart));
+    localStorage.setItem(`cart_user_${currentUser.id}`, JSON.stringify(cart));
     updateCart();
     showNotification(`${cartItem.name} удален из корзины`);
 }
@@ -619,7 +660,7 @@ async function handleCheckout() {
         console.log('Order created:', await response.json());
         showNotification('Заказ успешно оформлен!');
         cart = [];
-        localStorage.setItem('cart', JSON.stringify(cart));
+        localStorage.setItem(`cart_user_${currentUser.id}`, JSON.stringify(cart));
         updateCart();
         hideCart();
     } catch (error) {
@@ -630,6 +671,11 @@ async function handleCheckout() {
 
 // Обработчик добавления/удаления в избранное
 function handleToggleFavorite(product) {
+    if (!currentUser) {
+        showNotification('Пожалуйста, войдите в аккаунт для добавления в избранное!');
+        window.location.href = 'auth.html?tab=login';
+        return;
+    }
     console.log('Toggling favorite, product:', product);
     if (!product || !product.id || !product.name || !product.price) {
         console.error('Invalid product data:', product);
@@ -647,7 +693,7 @@ function handleToggleFavorite(product) {
         console.log('Favorites after adding:', JSON.stringify(favorites));
         showNotification(`${product.name} добавлен в избранное!`);
     }
-    localStorage.setItem('favorites', JSON.stringify(favorites));
+    localStorage.setItem(`favorites_user_${currentUser.id}`, JSON.stringify(favorites));
     updateFavorites();
     renderProducts(currentProducts);
     setupProductEventListeners();
@@ -656,7 +702,9 @@ function handleToggleFavorite(product) {
 // Обновление избранного
 function updateFavorites() {
     console.log('Updating favorites:', JSON.stringify(favorites));
-    localStorage.setItem('favorites', JSON.stringify(favorites));
+    if (currentUser) {
+        localStorage.setItem(`favorites_user_${currentUser.id}`, JSON.stringify(favorites));
+    }
     favoritesCount.textContent = favorites.length;
     favoritesItemsContainer.innerHTML = '';
 
@@ -687,6 +735,7 @@ function updateFavorites() {
 
 // Удаление из избранного
 function handleRemoveFromFavorites(e) {
+    if (!currentUser) return;
     const button = e.target.closest('.favorites-item-remove');
     if (!button) return;
 
@@ -707,7 +756,7 @@ function handleRemoveFromFavorites(e) {
 
     favorites = favorites.filter(item => item.id !== productId);
     console.log('Favorites after removal:', JSON.stringify(favorites));
-    localStorage.setItem('favorites', JSON.stringify(favorites));
+    localStorage.setItem(`favorites_user_${currentUser.id}`, JSON.stringify(favorites));
     updateFavorites();
     renderProducts(currentProducts);
     setupProductEventListeners();
@@ -728,13 +777,14 @@ function hideFavorites() {
 
 // Очистка избранного
 function handleClearFavorites() {
+    if (!currentUser) return;
     if (favorites.length === 0) {
         showNotification('Список избранного пуст!');
         return;
     }
     favorites = [];
     console.log('Favorites cleared:', JSON.stringify(favorites));
-    localStorage.setItem('favorites', JSON.stringify(favorites));
+    localStorage.setItem(`favorites_user_${currentUser.id}`, JSON.stringify(favorites));
     updateFavorites();
     renderProducts(currentProducts);
     setupProductEventListeners();
